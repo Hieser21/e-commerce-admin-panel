@@ -1,8 +1,8 @@
-import { View, Button, Text} from "react-native";
-import {darkColors } from "@rneui/themed";
+import { View, Text, Button } from "react-native";
+import {darkColors, Card } from "@rneui/themed";
 
 
-const MessageCard = (props) => {
+const MessageCard = (props: any) => {
   
     const done = () => {
 
@@ -25,7 +25,7 @@ const MessageCard = (props) => {
     console.log(props)
     return (
         
-            <View style={{backgroundColor: darkColors.background, borderWidth: 2, borderColor: darkColors.greyOutline, margin: 'auto', maxWidth: 600, marginBottom: 14, marginTop: 14}}>
+            <Card containerStyle={{backgroundColor: darkColors.background, borderWidth: 2, borderColor: darkColors.greyOutline, margin: 'auto', maxWidth: 600, marginBottom: 14, marginTop: 14}}>
                 <Text style={{color: 'white'}}>{d.toUTCString()}</Text>
                 <Text style={{color: 'white'}}>{'Username: '+props.name}</Text>
                 <Text style={{color: 'white'}}>{'Email: '+props.email}</Text>
@@ -36,11 +36,11 @@ const MessageCard = (props) => {
                         props.status === "Solved" ? (
                             <View></View>
                         ) : (
-                            <Button onPress={done} title="Done"/>
+                            <Button  onPress={done} title="Done"/>
                         )
                     }
                 
-          </View></View>
+          </View></Card>
         
     )
 }

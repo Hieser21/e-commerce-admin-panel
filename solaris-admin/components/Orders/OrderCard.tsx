@@ -1,5 +1,5 @@
 import { View, Text, Button } from 'react-native';
-import { darkColors } from '@rneui/themed';
+import { darkColors, Card} from '@rneui/themed';
 
 const OrderCard = (props) => {
   const cancelOrder = () => {
@@ -51,7 +51,7 @@ const OrderCard = (props) => {
   };
   let d = new Date(props.date);
   return (
-    <View style={{backgroundColor: darkColors.background, borderWidth: 2, borderColor: darkColors.greyOutline, margin: 'auto', maxWidth: 600, marginBottom: 14, marginTop: 14}}>
+    <Card containerStyle={{backgroundColor: darkColors.background, borderWidth: 2, borderColor: darkColors.greyOutline, margin: 'auto', maxWidth: 600, marginBottom: 14, marginTop: 14}}>
       <Text style={{color: 'white'}}>:{d.toUTCString()}</Text>
       <Text style={{color: 'white'}}>{'Username: '+props.name}</Text>
                 <Text style={{color: 'white'}}>{'Email: '+props.email}</Text>
@@ -59,10 +59,10 @@ const OrderCard = (props) => {
       <Text style={{ color: 'white' }}>{'Price: ' +props.price}</Text>
       <Text style={{ color: 'white' }}>:{'Address: '+props.address}</Text>
       <Text style={{color: 'white'}}>{'Status: '+props.status}</Text>
-        <Button title={'Cancel'} onPress={cancelOrder} />
-        <Button title={'Ship'} onPress={shipOrder} />
-        <Button title={'Complete'} onPress={completedOrder} />
-      </View>
+        <Button  title={'Cancel'}  onPress={cancelOrder} />
+        <Button  title={'Ship'} onPress={shipOrder} />
+        <Button  title={'Complete'} onPress={completedOrder} />
+      </Card>
   );
 };
 export default OrderCard;

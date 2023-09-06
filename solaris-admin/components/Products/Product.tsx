@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Text} from 'react-native'
-import { Button, Card, Image,  darkColors } from "@rneui/base";
+import { Button, Text} from 'react-native'
+import {  Card, Image,  darkColors } from "@rneui/themed";
 
 
 const ProductCard = (props: any) => {
@@ -35,7 +35,7 @@ const ProductCard = (props: any) => {
             <Text style={{ color: 'white'}}>{props.productname}</Text>
             <Text style={{fontSize: 13, color: 'white'}}>{props.description}</Text>
             <Text style={{fontSize: 13, color: 'white', }}>$ {props.price}</Text>
-            <Button type="solid" onPress={deleteProduct}>Delete</Button>
+            <Button title="Delete" onPress={deleteProduct} />
         </Card>
         
        

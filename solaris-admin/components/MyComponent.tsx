@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { View, Button } from "react-native";
 import { darkColors, useTheme } from "@rneui/themed";
-import { makeStyles, Button, useThemeMode, Input } from "@rneui/themed";
+import { makeStyles, useThemeMode, Input } from "@rneui/themed";
 
 import Products from "./Products/Products";
 import AddProduct from './Products/AddProduct'
@@ -13,23 +13,10 @@ import Orders from "./Orders/Orders";
 const AuthContext = React.createContext()
 
 
-const myTheme = {
-  dark: true,
-  colors: {
-    primary: darkColors.primary,
-    background: darkColors.background,
-    card: darkColors.white,
-    text: darkColors.black,
-    border: darkColors.greyOutline,
-    notification: darkColors.error,
 
-  }  
-}
 const Login = () => {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-
-  const { mode, setMode } = useThemeMode()
   // const handleOnPress = () => {
   //   setMode(mode === "dark" ? "light" : "dark");
   //   localStorage.setItem('theme', mode)
@@ -64,7 +51,7 @@ const Login = () => {
           onChangeText={setPassword}
           secureTextEntry
         />
-        <Button title="Sign in" onPress={() => 
+        <Button  title="Sign in" onPress={() => 
         { console.log(username + " " + password)
         signIn({ username, password })}} />
       </View>
@@ -76,7 +63,7 @@ const Login = () => {
 const SignOut = () => {
   const { signOut } = React.useContext(AuthContext);
   return (
-    <Button onPress={signOut}>Sign Out</Button>
+    <Button onPress={signOut} title="Sign Out" />
   )
 }
 
@@ -152,7 +139,7 @@ export default function App( ) {
               const randomString = random.join("");
               return randomString;
           }
-           let test = generateRandomString(8)
+           let test = generateRandomString(12)
            console.log(test)
            SecureStore.setItemAsync('userToken', test).catch(e => console.error(e))
             dispatch({ type: 'SIGN_IN', token: test }); }
